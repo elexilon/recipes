@@ -6,16 +6,22 @@ import Title from '../components/Title'
 import RecipeItem, { recipeShape } from './RecipeItem'
 import './RecipesContainer.css'
 import RecipeEditor from './RecipeEditor'
+import fetchRecipes from '../actions/recipes/fetch'
 
 class RecipesContainer extends PureComponent {
   static propTypes = {
     recipes: PropTypes.arrayOf(recipeShape).isRequired
   }
 
+  componentWillMount() {
+    this.props.fetchRecipes()
+  }
+
   renderRecipe = (recipe, index) => {
     return <RecipeItem
       key={index}
       onChange={() => {}}
+      showbutton={ false }
       { ...recipe }
     />
   }
@@ -40,4 +46,4 @@ const mapStateToProps = ({ recipes }) => ({
   recipes
 })
 
-export default connect(mapStateToProps)(RecipesContainer)
+export default connect(mapStateToProps, { fetchRecipes })(RecipesContainer)

@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react'
-import RecipesContainer from './recipes/RecipesContainer'
+import React from 'react'
+import Routes from './routes'
 import './App.sass'
 
-class App extends PureComponent {
+class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <RecipesContainer />
+      <div>
+        <Routes />
       </div>
     )
   }
