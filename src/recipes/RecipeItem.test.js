@@ -1,10 +1,9 @@
-// src/recipes/RecipeItem.test.js
 import React from 'react'
 import { shallow } from 'enzyme'
 import RecipeItem from './RecipeItem'
-import Pescatarian from '../images/pescatarian.svg'
-import Vegan from '../images/vegan.svg'
-import Vegetarian from '../images/vegetarian.svg'
+// import Pescatarian from '../images/pescatarian.svg'
+// import Vegan from '../images/vegan.svg'
+// import Vegetarian from '../images/vegetarian.svg'
 
 const recipe = {
     title: 'Spanish Omelette',
@@ -15,7 +14,7 @@ const recipe = {
 }
 
 describe('<RecipeItem />', () => {
-  const container = shallow(<RecipeItem { ...recipe } />)
+  const container = shallow(<RecipeItem { ...recipe } onChange={() => {}} />)
 
   it('is wrapped in a article tag with class name "RecipeItem"', () => {
     expect(container).toHaveTagName('article')

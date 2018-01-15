@@ -4,7 +4,8 @@ import { shallow } from 'enzyme'
 import RecipesContainer from './RecipesContainer'
 import RecipeItem from './RecipeItem'
 import Title from '../components/Title'
-import { recipes } from '../App'
+import { recipes } from '../reducers/recipes'
+
 
 describe('<RecipesContainer />', () => {
   const container = shallow(<RecipesContainer recipes={recipes} />)
