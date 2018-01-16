@@ -44,10 +44,11 @@ export const recipes = [
   },
 ]
 
-export default (state = recipes, { type, payload } = {}) => {
+export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case CREATE_RECIPE :
-      return [Object.assign({}, payload)].concat(state)
+      //return [Object.assign({}, payload)].concat(state)
+      return payload
 
     case FETCHED_RECIPES :
       return state = payload

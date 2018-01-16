@@ -7,6 +7,7 @@ import RecipeItem, { recipeShape } from './RecipeItem'
 import './RecipesContainer.css'
 import RecipeEditor from './RecipeEditor'
 import fetchRecipes from '../actions/recipes/fetch'
+import { Link } from 'react-router-dom'
 
 class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -31,6 +32,8 @@ class RecipesContainer extends PureComponent {
    <div className="recipes wrapper">
      <header>
        <Title content="Recipes" />
+       <Link to="/sign-in" >Sign In</Link>
+       <Link to="/sign-up" >Sign Up</Link>
        <RecipeEditor />
      </header>
 

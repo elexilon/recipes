@@ -31,28 +31,32 @@ export default class ApiClient {
   post(path, data = {}) {
     return request
       .post(this.createUrl(path))
-      .send(data)
       .set(this.headers())
+      .send(data)
+      .catch(err => console.log(err))
   }
 
   put(path, data = {}) {
     return request
       .put(this.createUrl(path))
-      .send(data)
       .set(this.headers())
+      .send(data)
+      .catch(err => console.log(err))
   }
 
   patch(path, data = {}) {
     return request
       .patch(this.createUrl(path))
-      .send(data)
       .set(this.headers())
+      .send(data)
+      .catch(err => console.log(err))
   }
 
   delete(path) {
     return request
       .delete(this.createUrl(path))
       .set(this.headers())
+      .catch(err => console.log(err))
   }
 
   headers() {
