@@ -1,7 +1,7 @@
 import { LOADING, DONE_LOADING } from '../actions/loading'
 
 export default (state = [], { type, payload } = {}) => {
-  switch(type) {
+  switch (type) {
     case LOADING :
       return state.concat(payload)
 

@@ -1,6 +1,6 @@
 import ApiClient from '../../api/client'
-import loading from '../loading'
-import loadError from '../loadError'
+import { loading, loadError } from '../loading'
+//import { sleep } from '../../global/Utility'
 export const SIGN_UP = 'SIGN_UP'
 
 const api = new ApiClient()
@@ -14,3 +14,7 @@ export default (data) => {
     dispatch(loading(path))
   }
 }
+
+// sleep(5000)
+// .then(_ => dispatch(cleanError(err)))
+// ))

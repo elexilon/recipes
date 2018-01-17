@@ -4,10 +4,10 @@ import { FETCHED_RECIPES } from '../actions/recipes/fetch'
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case CREATE_RECIPE :
-      return payload
+      return [...state, payload]
 
     case FETCHED_RECIPES :
-      return state = payload
+      return state.concat(payload)
 
     default :
       return state

@@ -1,6 +1,5 @@
 import ApiClient from '../../api/client'
-import loading from '../loading'
-import loadError from '../loadError'
+import { loading, loadError } from '../loading'
 export const FETCHED_RECIPES = 'FETCHED_RECIPES'
 
 const api = new ApiClient()

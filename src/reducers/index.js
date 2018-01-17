@@ -1,11 +1,11 @@
 import recipes from './recipes'
 import currentUser from './currentUser'
 import loading from './loading'
-import loadError from './loadError'
+import loadErrors from './loadErrors'
 
 export default {
   recipes,
   currentUser,
   loading,
-  loadError,
+  loadErrors,
 }

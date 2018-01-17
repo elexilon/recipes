@@ -1,4 +1,4 @@
-import { USER_SIGNED_IN } from '../actions/user/sign-in'
+import { USER_SIGNED_IN } from '../actions/user/user-signed-in'
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {

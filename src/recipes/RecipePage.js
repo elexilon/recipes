@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import fetchRecipes from '../actions/recipes/fetch'
+import { userSignedIn } from '../actions/user/user-signed-in'
 
 import RecipeItem, { recipeShape } from './RecipeItem'
 
 export class RecipePage extends PureComponent {
   static propTypes = {
     ...recipeShape.isRequired
+  }
+
+  componentWillMount() {
+    this.props.fetchRecipes()
+    this.props.userSignedIn()
   }
 
   renderRecipe = (recipe, index) => {
@@ -41,4 +48,4 @@ const mapStateToProps = ({ recipes }, { match }) => {
   }
 }
 
-export default connect(mapStateToProps)(RecipePage)
+export default connect(mapStateToProps, { fetchRecipes, userSignedIn })(RecipePage)
