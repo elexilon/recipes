@@ -10,12 +10,19 @@ const api = new ApiClient()
 export const userSignedIn = () => {
   return dispatch => {
     const path = 'users/me'
-    dispatch(loading(path, true))
-      api.get('users/me')
-      .then(res => dispatch({ type: USER_SIGNED_IN, payload: res.body }))
-      .catch(err => dispatch(loadError(err)))
+      if (!api.isAuthenticated()) return
 
-    dispatch(loading(path))
+      api.get('users/me')
+      .then(res => {
+        dispatch(loading(path, true))
+        dispatch({ type: USER_SIGNED_IN, payload: res.body })
+        dispatch(loading(path))
+      })
+      .catch(err => {
+        dispatch(loading(path, true))
+        dispatch(loadError(err))
+        dispatch(loading(path))
+      })
   }
 }
 

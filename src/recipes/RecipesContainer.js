@@ -8,7 +8,8 @@ import './RecipesContainer.css'
 import RecipeEditor from './RecipeEditor'
 import fetchRecipes from '../actions/recipes/fetch'
 import { Link } from 'react-router-dom'
-import { userSignedIn } from '../actions/user/user-signed-in'
+
+import Navigation from '../components/Navigation'
 
 class RecipesContainer extends PureComponent {
   static propTypes = {
@@ -17,7 +18,6 @@ class RecipesContainer extends PureComponent {
 
   componentWillMount() {
     this.props.fetchRecipes()
-    this.props.userSignedIn()
   }
 
   renderRecipe = (recipe, index) => {
@@ -34,8 +34,8 @@ class RecipesContainer extends PureComponent {
    <div className="recipes wrapper">
      <header>
        <Title content="Recipes" />
+       <Navigation />
        <Link to="/sign-in" >Sign In</Link>
-       <Link to="/sign-up" >Sign Up</Link>
        <RecipeEditor />
      </header>
 
@@ -51,4 +51,4 @@ const mapStateToProps = ({ recipes }) => ({
   recipes
 })
 
-export default connect(mapStateToProps, { fetchRecipes, userSignedIn })(RecipesContainer)
+export default connect(mapStateToProps, { fetchRecipes })(RecipesContainer)

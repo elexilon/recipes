@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import fetchRecipes from '../actions/recipes/fetch'
-import { userSignedIn } from '../actions/user/user-signed-in'
+import { fetchRecipeById } from '../actions/recipes/fetch'
 
 import RecipeItem, { recipeShape } from './RecipeItem'
 
@@ -11,18 +10,13 @@ export class RecipePage extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchRecipes()
-    this.props.userSignedIn()
-  }
-
-  renderRecipe = (recipe, index) => {
-    return
+    this.props.fetchRecipeById(this.props.match.params.recipeId)
   }
 
   render() {
     const recipe = this.props
     const hiddenLink = true
-    if (!recipe.title) return null
+        if (!recipe._id) return null
 
     return(
       <RecipeItem
@@ -48,4 +42,4 @@ const mapStateToProps = ({ recipes }, { match }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchRecipes, userSignedIn })(RecipePage)
+export default connect(mapStateToProps, { fetchRecipeById })(RecipePage)
