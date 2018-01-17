@@ -1,9 +1,9 @@
 import { USER_SIGNED_IN } from '../actions/user/sign-in'
 
-export default (state = {}, { type, payload } = {}) => {
+export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case USER_SIGNED_IN :
-      return payload
+      return state.concat(payload)
 
     default :
       return state

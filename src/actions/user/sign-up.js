@@ -7,9 +7,10 @@ const api = new ApiClient()
 
 export default (data) => {
   return dispatch => {
-    dispatch(loading(true))
-    api.post('users', data)
-      .catch(err => dispatch(loadError(err)))
-    dispatch(loading(false))
+    const path = 'users'
+    dispatch(loading(path, true))
+    api.post(path, data)
+    .catch(err => dispatch(loadError(err)))
+    dispatch(loading(path))
   }
 }

@@ -25,7 +25,7 @@ export default class ApiClient {
     return request
       .get(this.createUrl(path))
       .set(this.headers())
-      .catch(err => console.log(err))
+
   }
 
   post(path, data = {}) {
@@ -33,7 +33,6 @@ export default class ApiClient {
       .post(this.createUrl(path))
       .set(this.headers())
       .send(data)
-      .catch(err => console.log(err))
   }
 
   put(path, data = {}) {
@@ -41,7 +40,6 @@ export default class ApiClient {
       .put(this.createUrl(path))
       .set(this.headers())
       .send(data)
-      .catch(err => console.log(err))
   }
 
   patch(path, data = {}) {
@@ -49,14 +47,12 @@ export default class ApiClient {
       .patch(this.createUrl(path))
       .set(this.headers())
       .send(data)
-      .catch(err => console.log(err))
   }
 
   delete(path) {
     return request
       .delete(this.createUrl(path))
       .set(this.headers())
-      .catch(err => console.log(err))
   }
 
   headers() {
